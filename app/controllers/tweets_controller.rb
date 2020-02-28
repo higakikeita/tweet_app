@@ -22,7 +22,8 @@ class TweetsController < ApplicationController
     tweet.update(tweet_params)
   end
   def show
-    
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
   private
   def tweet_params
